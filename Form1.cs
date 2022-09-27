@@ -1,4 +1,6 @@
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Xml.XPath;
 
 namespace SD_320_W22SD_Assignment
 {
@@ -6,7 +8,8 @@ namespace SD_320_W22SD_Assignment
     {
         public int StoredOperand { get; set; }
         public char StoredOperation { get; set; }
-        public int CalculatorInput { get; set; }
+        public StringBuilder CalculatorInput { get; set; } = new StringBuilder();
+        public int Result { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -14,25 +17,48 @@ namespace SD_320_W22SD_Assignment
 
         private void textbox_CalculatorInput_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Regex.IsMatch(e.KeyChar.ToString(), "[^0-9]"))
+            if(char.IsNumber(e.KeyChar))
             {
-                StoredOperand.ToString().Append(e.KeyChar);
+                CalculatorInput.Append(e.KeyChar);
             }
-        }
+            else if(!char.IsLetterOrDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                StoredOperand = Int32.Parse(CalculatorInput.ToString());
+                if(e.KeyChar != '=')
+                {
+                    CalculatorInput.Clear().Append(0);
+                }
+                StoredOperation = e.KeyChar;
+                label_Equation.Text = $"{StoredOperand} {StoredOperation}";
+                textbox_CalculatorInput.Text = "";
+                
+            }
 
-        //private void textbox_CalculatorInput_TextChanged(object sender, EventArgs e)
-        //{
-        //    if (Regex.IsMatch(textbox_CalculatorInput.Text, "[^0-9]"))
-        //    {
-        //        try
-        //        {
-        //            CalculatorInput = Int32.Parse(textbox_CalculatorInput.Text);
-        //        }
-        //        catch
-        //        {
-        //        }
-        //    }
-        //}
+            if(StoredOperation == '=' && Int32.Parse(CalculatorInput.ToString()) > 0)
+            {
+                switch (StoredOperation)
+                {
+                    case '+':
+                        Result = Int32.Parse(StoredOperand.ToString()) + Int32.Parse(CalculatorInput.ToString());
+                        break;
+                    case '-':
+                        Result = Int32.Parse(StoredOperand.ToString()) - Int32.Parse(CalculatorInput.ToString());
+                        break;
+                    case '/':
+                        Result = Int32.Parse(StoredOperand.ToString()) / Int32.Parse(CalculatorInput.ToString());
+                        break;
+                    case '*':
+                        Result = Int32.Parse(StoredOperand.ToString()) * Int32.Parse(CalculatorInput.ToString());
+                        break;
+                    default:
+                        StoredOperation = ' ';
+                        break;
+                }
+            }
+            
+            
+        }
 
         private void button_ClearCalculatorInput_Click(object sender, EventArgs e)
         {

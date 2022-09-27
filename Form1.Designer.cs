@@ -68,7 +68,6 @@
             this.textbox_CalculatorInput.Text = "0";
             this.textbox_CalculatorInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textbox_CalculatorInput.KeyPress += new KeyPressEventHandler(this.textbox_CalculatorInput_KeyPress);
-            //this.textbox_CalculatorInput.TextChanged += new System.EventHandler(this.textbox_CalculatorInput_TextChanged);
             // 
             // button_PositiveNegativeOperand
             // 
