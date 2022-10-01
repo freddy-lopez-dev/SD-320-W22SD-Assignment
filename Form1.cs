@@ -39,14 +39,6 @@ namespace SD_320_W22SD_Assignment
             }
         }
 
-        private void button_ClearCalculatorInput_Click(object sender, EventArgs e)
-        {
-            StoredOperand = 0;
-            label_Equation.Text = "";
-            CalculatorInput.Clear();
-            textbox_CalculatorInput.Text = CalculatorInput.ToString();
-        }
-
         private void ComputeEquation()
         {
             switch (StoredOperation)
@@ -65,6 +57,15 @@ namespace SD_320_W22SD_Assignment
                     break;
 
             }
+        }
+
+        #region Numpad Operations
+        private void button_ClearCalculatorInput_Click(object sender, EventArgs e)
+        {
+            StoredOperand = 0;
+            label_Equation.Text = "";
+            CalculatorInput.Clear();
+            textbox_CalculatorInput.Text = CalculatorInput.ToString();
         }
 
         private void button_PositiveNegativeOperand_Click(object sender, EventArgs e)
@@ -88,63 +89,6 @@ namespace SD_320_W22SD_Assignment
                 StoredOperand = double.Parse(CalculatorInput.ToString());
             }
             StoredOperation = '+';
-            CalculatorInput.Clear();
-            textbox_CalculatorInput.Clear();
-            label_Equation.Text = $"{StoredOperand} {StoredOperation}";
-        }
-
-        private void button_SubtractionOperation_Click(object sender, EventArgs e)
-        {
-            if (StoredOperand != 0 && CalculatorInput.Length != 0)
-            {
-                ComputeEquation();
-            }
-            else if (StoredOperand == 0 && CalculatorInput.Length != 0)
-            {
-                StoredOperand = double.Parse(CalculatorInput.ToString());
-            }
-            StoredOperation = '-';
-            CalculatorInput.Clear();
-            textbox_CalculatorInput.Clear();
-            label_Equation.Text = $"{StoredOperand} {StoredOperation}";
-        }
-
-        private void button_MultiplicationOperation_Click(object sender, EventArgs e)
-        {
-            if (StoredOperand != 0 && CalculatorInput.Length != 0)
-            {
-                ComputeEquation();
-            }
-            else if (StoredOperand == 0 && CalculatorInput.Length != 0)
-            {
-                StoredOperand = double.Parse(CalculatorInput.ToString());
-            }
-            StoredOperation = '*';
-            CalculatorInput.Clear();
-            textbox_CalculatorInput.Clear();
-            label_Equation.Text = $"{StoredOperand} {StoredOperation}";
-        }
-
-        private void button_DivisionOperation_Click(object sender, EventArgs e)
-        {
-            if (StoredOperand != 0 && CalculatorInput.Length != 0)
-            {
-                ComputeEquation();
-            }
-            else if (StoredOperand == 0 && CalculatorInput.Length != 0)
-            {
-                StoredOperand = double.Parse(CalculatorInput.ToString());
-            }
-            StoredOperation = '/';
-            CalculatorInput.Clear();
-            textbox_CalculatorInput.Clear();
-            label_Equation.Text = $"{StoredOperand} {StoredOperation}";
-        }
-
-        private void button_EquivalentSign_Click(object sender, EventArgs e)
-        {
-            ComputeEquation();
-            StoredOperation = ' ';
             CalculatorInput.Clear();
             textbox_CalculatorInput.Clear();
             label_Equation.Text = $"{StoredOperand} {StoredOperation}";
@@ -218,7 +162,9 @@ namespace SD_320_W22SD_Assignment
             CalculatorInput.Append('9');
             textbox_CalculatorInput.Text = CalculatorInput.ToString();
         }
+        #endregion
 
+        #region Convert Operations
         private void button_ConvertIntToBinary_Click(object sender, EventArgs e)
         {
             if (!textbox_CalculatorInput.Text.Contains('.'))
@@ -249,7 +195,7 @@ namespace SD_320_W22SD_Assignment
         private void button_ConvertDecimalToLocational_Click(object sender, EventArgs e)
         {
             Regex numRegex = new Regex(@"[0-9]");
-            if(numRegex.IsMatch(textbox_CalculatorInput.Text) && !textbox_CalculatorInput.Text.Contains("."))
+            if (numRegex.IsMatch(textbox_CalculatorInput.Text) && !textbox_CalculatorInput.Text.Contains("."))
             {
                 long num = long.Parse(CalculatorInput.ToString());
                 char[] alphabet = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
@@ -284,5 +230,66 @@ namespace SD_320_W22SD_Assignment
                 textbox_CalculatorInput.Text = locVal.ToString();
             }
         }
+        #endregion
+
+        #region Math Operations
+        private void button_SubtractionOperation_Click(object sender, EventArgs e)
+        {
+            if (StoredOperand != 0 && CalculatorInput.Length != 0)
+            {
+                ComputeEquation();
+            }
+            else if (StoredOperand == 0 && CalculatorInput.Length != 0)
+            {
+                StoredOperand = double.Parse(CalculatorInput.ToString());
+            }
+            StoredOperation = '-';
+            CalculatorInput.Clear();
+            textbox_CalculatorInput.Clear();
+            label_Equation.Text = $"{StoredOperand} {StoredOperation}";
+        }
+
+        private void button_MultiplicationOperation_Click(object sender, EventArgs e)
+        {
+            if (StoredOperand != 0 && CalculatorInput.Length != 0)
+            {
+                ComputeEquation();
+            }
+            else if (StoredOperand == 0 && CalculatorInput.Length != 0)
+            {
+                StoredOperand = double.Parse(CalculatorInput.ToString());
+            }
+            StoredOperation = '*';
+            CalculatorInput.Clear();
+            textbox_CalculatorInput.Clear();
+            label_Equation.Text = $"{StoredOperand} {StoredOperation}";
+        }
+
+        private void button_DivisionOperation_Click(object sender, EventArgs e)
+        {
+            if (StoredOperand != 0 && CalculatorInput.Length != 0)
+            {
+                ComputeEquation();
+            }
+            else if (StoredOperand == 0 && CalculatorInput.Length != 0)
+            {
+                StoredOperand = double.Parse(CalculatorInput.ToString());
+            }
+            StoredOperation = '/';
+            CalculatorInput.Clear();
+            textbox_CalculatorInput.Clear();
+            label_Equation.Text = $"{StoredOperand} {StoredOperation}";
+        }
+
+        private void button_EquivalentSign_Click(object sender, EventArgs e)
+        {
+            ComputeEquation();
+            StoredOperation = ' ';
+            CalculatorInput.Clear();
+            textbox_CalculatorInput.Clear();
+            label_Equation.Text = $"{StoredOperand} {StoredOperation}";
+        }
+
+        #endregion
     }
 }
