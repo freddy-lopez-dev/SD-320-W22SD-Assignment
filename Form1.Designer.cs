@@ -67,7 +67,7 @@
             this.textbox_CalculatorInput.TabIndex = 0;
             this.textbox_CalculatorInput.Text = "0";
             this.textbox_CalculatorInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textbox_CalculatorInput.KeyPress += new KeyPressEventHandler(this.textbox_CalculatorInput_KeyPress);
+            this.textbox_CalculatorInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_CalculatorInput_KeyPress);
             // 
             // button_PositiveNegativeOperand
             // 
@@ -84,6 +84,7 @@
             this.button_PositiveNegativeOperand.TabIndex = 1;
             this.button_PositiveNegativeOperand.Text = "+/-";
             this.button_PositiveNegativeOperand.UseVisualStyleBackColor = false;
+            this.button_PositiveNegativeOperand.Click += new System.EventHandler(this.button_PositiveNegativeOperand_Click);
             // 
             // button_AppendZeroValueToInput
             // 
@@ -100,6 +101,7 @@
             this.button_AppendZeroValueToInput.TabIndex = 2;
             this.button_AppendZeroValueToInput.Text = "0";
             this.button_AppendZeroValueToInput.UseVisualStyleBackColor = false;
+            this.button_AppendZeroValueToInput.Click += new System.EventHandler(this.button_AppendZeroValueToInput_Click);
             // 
             // button_AppendDecimalPointToInput
             // 
@@ -116,6 +118,7 @@
             this.button_AppendDecimalPointToInput.TabIndex = 3;
             this.button_AppendDecimalPointToInput.Text = ".";
             this.button_AppendDecimalPointToInput.UseVisualStyleBackColor = false;
+            this.button_AppendDecimalPointToInput.Click += new System.EventHandler(this.button_AppendDecimalPointToInput_Click);
             // 
             // button_EquivalentSign
             // 
@@ -132,6 +135,7 @@
             this.button_EquivalentSign.TabIndex = 4;
             this.button_EquivalentSign.Text = "=";
             this.button_EquivalentSign.UseVisualStyleBackColor = false;
+            this.button_EquivalentSign.Click += new System.EventHandler(this.button_EquivalentSign_Click);
             // 
             // button_AppendOneToInput
             // 
@@ -148,6 +152,7 @@
             this.button_AppendOneToInput.TabIndex = 5;
             this.button_AppendOneToInput.Text = "1";
             this.button_AppendOneToInput.UseVisualStyleBackColor = false;
+            this.button_AppendOneToInput.Click += new System.EventHandler(this.button_AppendOneToInput_Click);
             // 
             // button_AppendTwoValueToInput
             // 
@@ -164,6 +169,7 @@
             this.button_AppendTwoValueToInput.TabIndex = 6;
             this.button_AppendTwoValueToInput.Text = "2";
             this.button_AppendTwoValueToInput.UseVisualStyleBackColor = false;
+            this.button_AppendTwoValueToInput.Click += new System.EventHandler(this.button_AppendTwoValueToInput_Click);
             // 
             // button_AppendThreeValueToInput
             // 
@@ -180,6 +186,7 @@
             this.button_AppendThreeValueToInput.TabIndex = 7;
             this.button_AppendThreeValueToInput.Text = "3";
             this.button_AppendThreeValueToInput.UseVisualStyleBackColor = false;
+            this.button_AppendThreeValueToInput.Click += new System.EventHandler(this.button_AppendThreeValueToInput_Click);
             // 
             // button_AdditionOperation
             // 
@@ -196,6 +203,7 @@
             this.button_AdditionOperation.TabIndex = 8;
             this.button_AdditionOperation.Text = "+";
             this.button_AdditionOperation.UseVisualStyleBackColor = false;
+            this.button_AdditionOperation.Click += new System.EventHandler(this.button_AdditionOperation_Click);
             // 
             // button_AppendFourToInput
             // 
@@ -212,6 +220,7 @@
             this.button_AppendFourToInput.TabIndex = 9;
             this.button_AppendFourToInput.Text = "4";
             this.button_AppendFourToInput.UseVisualStyleBackColor = false;
+            this.button_AppendFourToInput.Click += new System.EventHandler(this.button_AppendFourToInput_Click);
             // 
             // button_AppendFiveValueToInput
             // 
@@ -228,6 +237,7 @@
             this.button_AppendFiveValueToInput.TabIndex = 10;
             this.button_AppendFiveValueToInput.Text = "5";
             this.button_AppendFiveValueToInput.UseVisualStyleBackColor = false;
+            this.button_AppendFiveValueToInput.Click += new System.EventHandler(this.button_AppendFiveValueToInput_Click);
             // 
             // button_AppendSixValueToInput
             // 
@@ -244,6 +254,7 @@
             this.button_AppendSixValueToInput.TabIndex = 11;
             this.button_AppendSixValueToInput.Text = "6";
             this.button_AppendSixValueToInput.UseVisualStyleBackColor = false;
+            this.button_AppendSixValueToInput.Click += new System.EventHandler(this.button_AppendSixValueToInput_Click);
             // 
             // button_SubtractionOperation
             // 
@@ -260,6 +271,7 @@
             this.button_SubtractionOperation.TabIndex = 12;
             this.button_SubtractionOperation.Text = "-";
             this.button_SubtractionOperation.UseVisualStyleBackColor = false;
+            this.button_SubtractionOperation.Click += new System.EventHandler(this.button_SubtractionOperation_Click);
             // 
             // button_AppendSevenToInput
             // 
@@ -276,6 +288,7 @@
             this.button_AppendSevenToInput.TabIndex = 13;
             this.button_AppendSevenToInput.Text = "7";
             this.button_AppendSevenToInput.UseVisualStyleBackColor = false;
+            this.button_AppendSevenToInput.Click += new System.EventHandler(this.button_AppendSevenToInput_Click);
             // 
             // button_AppendEightValueToInput
             // 
@@ -292,6 +305,7 @@
             this.button_AppendEightValueToInput.TabIndex = 14;
             this.button_AppendEightValueToInput.Text = "8";
             this.button_AppendEightValueToInput.UseVisualStyleBackColor = false;
+            this.button_AppendEightValueToInput.Click += new System.EventHandler(this.button_AppendEightValueToInput_Click);
             // 
             // button_AppendNineValueToInput
             // 
@@ -308,6 +322,7 @@
             this.button_AppendNineValueToInput.TabIndex = 15;
             this.button_AppendNineValueToInput.Text = "9";
             this.button_AppendNineValueToInput.UseVisualStyleBackColor = false;
+            this.button_AppendNineValueToInput.Click += new System.EventHandler(this.button_AppendNineValueToInput_Click);
             // 
             // button_MultiplicationOperation
             // 
@@ -324,6 +339,7 @@
             this.button_MultiplicationOperation.TabIndex = 16;
             this.button_MultiplicationOperation.Text = "x";
             this.button_MultiplicationOperation.UseVisualStyleBackColor = false;
+            this.button_MultiplicationOperation.Click += new System.EventHandler(this.button_MultiplicationOperation_Click);
             // 
             // button_ConvertIntToBinary
             // 
@@ -340,6 +356,7 @@
             this.button_ConvertIntToBinary.TabIndex = 17;
             this.button_ConvertIntToBinary.Text = "BIN";
             this.button_ConvertIntToBinary.UseVisualStyleBackColor = false;
+            this.button_ConvertIntToBinary.Click += new System.EventHandler(this.button_ConvertIntToBinary_Click);
             // 
             // button_DivisionOperation
             // 
@@ -356,6 +373,7 @@
             this.button_DivisionOperation.TabIndex = 18;
             this.button_DivisionOperation.Text = "÷";
             this.button_DivisionOperation.UseVisualStyleBackColor = false;
+            this.button_DivisionOperation.Click += new System.EventHandler(this.button_DivisionOperation_Click);
             // 
             // button_ConvertBinaryToDecimal
             // 
@@ -372,6 +390,7 @@
             this.button_ConvertBinaryToDecimal.TabIndex = 19;
             this.button_ConvertBinaryToDecimal.Text = "DEC";
             this.button_ConvertBinaryToDecimal.UseVisualStyleBackColor = false;
+            this.button_ConvertBinaryToDecimal.Click += new System.EventHandler(this.button_ConvertBinaryToDecimal_Click);
             // 
             // button_ConvertDecimalToLocational
             // 
@@ -388,6 +407,7 @@
             this.button_ConvertDecimalToLocational.TabIndex = 20;
             this.button_ConvertDecimalToLocational.Text = "LOC";
             this.button_ConvertDecimalToLocational.UseVisualStyleBackColor = false;
+            this.button_ConvertDecimalToLocational.Click += new System.EventHandler(this.button_ConvertDecimalToLocational_Click);
             // 
             // button_ClearCalculatorInput
             // 
