@@ -66,6 +66,12 @@ namespace SD_320_W22SD_Assignment
             label_Equation.Text = "";
             CalculatorInput.Clear();
             textbox_CalculatorInput.Text = CalculatorInput.ToString();
+            ShowKeys();
+            button_ConvertBinaryToDecimal.Show();
+            button_ConvertIntToBinary.Show();
+            button_BinaryTab.BackColor = Color.Transparent;
+            button_DecimalTab.BackColor = Color.Transparent;
+            button_LocTab.BackColor = Color.Transparent;
         }
 
         private void button_PositiveNegativeOperand_Click(object sender, EventArgs e)
@@ -167,35 +173,41 @@ namespace SD_320_W22SD_Assignment
         #region Convert Operations
         private void button_ConvertIntToBinary_Click(object sender, EventArgs e)
         {
-            if (!textbox_CalculatorInput.Text.Contains('.'))
+            if (Int32.Parse(textbox_CalculatorInput.Text) > 0)
             {
-                int num = Convert.ToInt32(CalculatorInput.ToString(), 2);
+                string binVal = Convert.ToString(Int32.Parse(textbox_CalculatorInput.Text), 2);
                 CalculatorInput.Clear();
-                CalculatorInput.Append(num);
+                CalculatorInput.Append(binVal);
                 textbox_CalculatorInput.Text = CalculatorInput.ToString();
+                button_BinaryTab.BackColor = Color.FromArgb(15, 68, 119);
+                button_LocTab.BackColor = Color.Transparent;
+                button_DecimalTab.BackColor = Color.Transparent;
+                HideKeys();
+                button_AppendZeroValueToInput.Show();
+                button_AppendOneToInput.Show();
             }
         }
 
         private void button_ConvertBinaryToDecimal_Click(object sender, EventArgs e)
         {
-            List<int> bins = new List<int>();
-            int bin = Int32.Parse(CalculatorInput.ToString());
-
-            for (int i = 0; bin > 0; i++)
+            Regex binRegex = new Regex(@"[2-9]");
+            if (decimal.Parse(textbox_CalculatorInput.Text) > 0 && !binRegex.IsMatch(textbox_CalculatorInput.Text))
             {
-                bins.Add(bin % 2);
-                bin = bin / 2;
+                int num = Convert.ToInt32(CalculatorInput.ToString(), 2);
+                CalculatorInput.Clear();
+                CalculatorInput.Append(num);
+                textbox_CalculatorInput.Text = CalculatorInput.ToString();
+                button_DecimalTab.BackColor = Color.FromArgb(15, 68, 119);
+                button_BinaryTab.BackColor = Color.Transparent;
+                button_LocTab.BackColor = Color.Transparent;
+                ShowKeys();
             }
-
-            CalculatorInput.Clear();
-            bins.ForEach(item => CalculatorInput.Append(item));
-            textbox_CalculatorInput.Text = CalculatorInput.ToString();
         }
 
         private void button_ConvertDecimalToLocational_Click(object sender, EventArgs e)
         {
             Regex numRegex = new Regex(@"[0-9]");
-            if (numRegex.IsMatch(textbox_CalculatorInput.Text) && !textbox_CalculatorInput.Text.Contains("."))
+            if (numRegex.IsMatch(textbox_CalculatorInput.Text) && !textbox_CalculatorInput.Text.Contains(".") && Int32.Parse(textbox_CalculatorInput.Text) > 0)
             {
                 long num = long.Parse(CalculatorInput.ToString());
                 char[] alphabet = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
@@ -228,6 +240,12 @@ namespace SD_320_W22SD_Assignment
                 });
 
                 textbox_CalculatorInput.Text = locVal.ToString();
+                button_DecimalTab.BackColor = Color.Transparent;
+                button_BinaryTab.BackColor = Color.Transparent;
+                button_LocTab.BackColor = Color.FromArgb(15, 68, 119);
+                HideKeys();
+                button_ConvertBinaryToDecimal.Hide();
+                button_ConvertIntToBinary.Hide();
             }
         }
         #endregion
@@ -290,6 +308,50 @@ namespace SD_320_W22SD_Assignment
             label_Equation.Text = $"{StoredOperand} {StoredOperation}";
         }
 
+        #endregion
+
+        #region Options
+        void HideKeys()
+        {
+            button_PositiveNegativeOperand.Hide();
+            button_AppendZeroValueToInput.Hide();
+            button_AppendOneToInput.Hide();
+            button_AppendTwoValueToInput.Hide();
+            button_AppendThreeValueToInput.Hide();
+            button_AppendFourToInput.Hide();
+            button_AppendFiveValueToInput.Hide();
+            button_AppendSixValueToInput.Hide();
+            button_AppendSevenToInput.Hide();
+            button_AppendEightValueToInput.Hide();
+            button_AppendNineValueToInput.Hide();
+            button_AdditionOperation.Hide();
+            button_EquivalentSign.Hide();
+            button_SubtractionOperation.Hide();
+            button_MultiplicationOperation.Hide();
+            button_DivisionOperation.Hide();
+            button_AppendDecimalPointToInput.Hide();
+        }
+
+        void ShowKeys()
+        {
+            button_PositiveNegativeOperand.Show();
+            button_AppendZeroValueToInput.Show();
+            button_AppendOneToInput.Show();
+            button_AppendTwoValueToInput.Show();
+            button_AppendThreeValueToInput.Show();
+            button_AppendFourToInput.Show();
+            button_AppendFiveValueToInput.Show();
+            button_AppendSixValueToInput.Show();
+            button_AppendSevenToInput.Show();
+            button_AppendEightValueToInput.Show();
+            button_AppendNineValueToInput.Show();
+            button_AdditionOperation.Show();
+            button_EquivalentSign.Show();
+            button_SubtractionOperation.Show();
+            button_MultiplicationOperation.Show();
+            button_DivisionOperation.Show();
+            button_AppendDecimalPointToInput.Show();
+        }
         #endregion
     }
 }

@@ -51,6 +51,9 @@
             this.button_ConvertDecimalToLocational = new System.Windows.Forms.Button();
             this.button_ClearCalculatorInput = new System.Windows.Forms.Button();
             this.label_Equation = new System.Windows.Forms.Label();
+            this.button_BinaryTab = new System.Windows.Forms.Button();
+            this.button_DecimalTab = new System.Windows.Forms.Button();
+            this.button_LocTab = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textbox_CalculatorInput
@@ -437,12 +440,63 @@
             this.label_Equation.TabIndex = 22;
             this.label_Equation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // button_BinaryTab
+            // 
+            this.button_BinaryTab.AccessibleDescription = "Button that changes the view of calculator to Binary";
+            this.button_BinaryTab.AccessibleName = "View Binary Button";
+            this.button_BinaryTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.button_BinaryTab.FlatAppearance.BorderSize = 0;
+            this.button_BinaryTab.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_BinaryTab.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button_BinaryTab.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_BinaryTab.Location = new System.Drawing.Point(4, 117);
+            this.button_BinaryTab.Name = "button_BinaryTab";
+            this.button_BinaryTab.Size = new System.Drawing.Size(122, 39);
+            this.button_BinaryTab.TabIndex = 23;
+            this.button_BinaryTab.Text = "BINdicator";
+            this.button_BinaryTab.UseVisualStyleBackColor = false;
+            // 
+            // button_DecimalTab
+            // 
+            this.button_DecimalTab.AccessibleDescription = "Button that changes the view of calculator to Decimal";
+            this.button_DecimalTab.AccessibleName = "View Decimal Button";
+            this.button_DecimalTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.button_DecimalTab.FlatAppearance.BorderSize = 0;
+            this.button_DecimalTab.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_DecimalTab.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button_DecimalTab.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_DecimalTab.Location = new System.Drawing.Point(129, 117);
+            this.button_DecimalTab.Name = "button_DecimalTab";
+            this.button_DecimalTab.Size = new System.Drawing.Size(130, 39);
+            this.button_DecimalTab.TabIndex = 24;
+            this.button_DecimalTab.Text = "DECator";
+            this.button_DecimalTab.UseVisualStyleBackColor = false;
+            // 
+            // button_LocTab
+            // 
+            this.button_LocTab.AccessibleDescription = "Button that changes the view of calculator to Locational";
+            this.button_LocTab.AccessibleName = "View Locational Button";
+            this.button_LocTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.button_LocTab.FlatAppearance.BorderSize = 0;
+            this.button_LocTab.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_LocTab.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button_LocTab.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_LocTab.Location = new System.Drawing.Point(262, 117);
+            this.button_LocTab.Name = "button_LocTab";
+            this.button_LocTab.Size = new System.Drawing.Size(130, 39);
+            this.button_LocTab.TabIndex = 25;
+            this.button_LocTab.Text = "LOCator";
+            this.button_LocTab.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(530, 561);
+            this.Controls.Add(this.button_LocTab);
+            this.Controls.Add(this.button_DecimalTab);
+            this.Controls.Add(this.button_BinaryTab);
             this.Controls.Add(this.label_Equation);
             this.Controls.Add(this.button_ClearCalculatorInput);
             this.Controls.Add(this.button_ConvertDecimalToLocational);
@@ -498,5 +552,8 @@
         private Button button_ConvertDecimalToLocational;
         private Button button_ClearCalculatorInput;
         private Label label_Equation;
+        private Button button_BinaryTab;
+        private Button button_DecimalTab;
+        private Button button_LocTab;
     }
 }
